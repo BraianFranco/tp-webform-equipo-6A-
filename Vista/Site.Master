@@ -4,19 +4,20 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
+      
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
-     <link href="~/Content/Default.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Default.css" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -48,7 +49,7 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-               
+
             </div>
         </nav>
 
@@ -56,16 +57,14 @@
 
         <div class="container body-content mb-3">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-          
-            
             </asp:ContentPlaceHolder>
 
 
 
-
-
             <footer>
-               
+
+
+
             </footer>
         </div>
     </form>
@@ -73,6 +72,7 @@
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+       
     </asp:PlaceHolder>
 </body>
 </html>

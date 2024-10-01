@@ -3,3 +3,12 @@
 
 }
 
+
+.label-error {
+    color: red;
+    font-weight: bold; 
+    background-color: rgba(255, 0, 0, 0.1); 
+    padding: 10px; 
+    border-radius: 5px; 
+    display: inline-block;
+}
