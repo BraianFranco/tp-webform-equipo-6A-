@@ -10,7 +10,7 @@ using Modelo;
 
 namespace Vista
 {
-    public partial class IngesoDatos : System.Web.UI.Page
+    public partial class IngresoDatos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +46,6 @@ namespace Vista
                 }
             }
         }
-
 
 
     }

@@ -23,10 +23,10 @@ namespace Controlador
 
         }
 
-        public Imagen getImagenByArticuloId(int id)
+        static public Imagen getImagenByArticuloId(int id)
         {
-
-           
+            AccesoDatos db = new AccesoDatos();
+            Imagen imagen = new Imagen();
 
             try
             {
@@ -62,6 +62,33 @@ namespace Controlador
 
         }
 
+
+        public List<Imagen> Listar()
+        {
+            List<Imagen> lista = new List<Imagen>();
+
+            AccesoDatos Ad = new AccesoDatos();
+
+            Ad.setearConsulta("select Id, IdArticulo, ImagenUrl FROM IMAGENES");
+            Ad.ejecutarLectura();
+
+            while (Ad.Lector.Read())
+            {
+
+                Imagen aux = new Imagen();
+                aux.Id = (int)Ad.Lector["Id"];
+                aux.IdArticulo = (int)Ad.Lector["IdArticulo"];
+                aux.Url = (string)Ad.Lector["ImagenUrl"];
+
+                lista.Add(aux);
+            }
+
+
+            Ad.cerrarConexion();
+
+            return lista;
+
+        }
 
 
 

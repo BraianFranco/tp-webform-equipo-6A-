@@ -1,46 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SelecciónPremio.aspx.cs" Inherits="Vista.SelecciónPremio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
+
     <h1 class="text-center">Elegí tu premio</h1>
-    <table class="card bg-dark card-body my-5 align-items-center" style="height:auto"> 
-        <tr>
-            <td>
-                <div class="card " style="margin-right:20px ; width: 18rem";>
-                    <img src="https://gorilagames.com/img/Public/1019-producto-teclado-hyperx-origins-60-aqua-1-9668.jpg" class="card-img-top" alt="ImagenProducto">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo/Enlazar con la bsase de datos</h5>
-                        <p class="card-text">Descripcion/Enlazar con la base de datos.</p>
-                        <asp:Button ID="btnSeleccionar1" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" />
+
+
+    <div class="row row-cols-3 row-cols-md-3 g-1" style="text-align: center; margin-left: 140px">
+
+        <%  
+            foreach (Modelo.Articulo art in ListaPremios)
+            {
+        %>
+
+        <div class="card text-bg-dark" style="margin-right: 35px; width: 20rem">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img style="height: 400px" src="<%: Controlador.ControladorImagen.getImagenByArticuloId(art.Id)%>" class="d-block w-100" alt="Default">
                     </div>
                 </div>
-            </td>
-            <td>
-                <div class="card" style=" margin-right:20px ; width: 18rem;">
-                    <img src="https://fullh4rd.com.ar/img/productos/14/mouse-logitech-g203-gaming-lightsync-black-910005793-0.jpg" class="card-img-top" alt="ImagenProducto">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo/Enlazar con la bsase de datos</h5>
-                        <p class="card-text">Descripcion/Enlazar con la base de datos.</p>
-                        <asp:Button ID="btnSeleccionar2" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" />
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="card" style="margin-right:20px ; width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh0lhHnlUohByU9vb_Uq-MKmwjORg1RcGA_w&s" class="card-img-top" alt="ImagenProducto">
-                    <div class="card-body">
-                        <h5 class="card-title">Titulo/Enlazar con la bsase de datos</h5>
-                        <p class="card-text">Descripcion/Enlazar con la base de datos.</p>
-                        <asp:Button ID="btnSeleccionar3" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" />
-                    </div>
-                </div>
-            </td>
-        </tr>
-
-    </table>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden form-control-color">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">siguiente</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%:art.Nombre%> </h5>
+                <p class="card-text"><%:art.Descripcion%></p>
+                <asp:Button ID="btnSeleccionar" OnClick="btnSeleccionar_Click" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" />
+            </div>
+        </div>
 
 
-
-
+        <%  } %>
+    </div>
 
 </asp:Content>

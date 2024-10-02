@@ -15,30 +15,12 @@ namespace Vista
     {
 
         /// <summary>
-        /// btnSeleccionar1 control.
+        /// btnSeleccionar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSeleccionar1;
-
-        /// <summary>
-        /// btnSeleccionar2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSeleccionar2;
-
-        /// <summary>
-        /// btnSeleccionar3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSeleccionar3;
+        protected global::System.Web.UI.WebControls.Button btnSeleccionar;
     }
 }
