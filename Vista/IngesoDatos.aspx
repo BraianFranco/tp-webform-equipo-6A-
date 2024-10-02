@@ -3,10 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 class="text-center">Ingresá tus datos</h1>
 
-    <div class="card text-white bg-dark align-items-center card-body my-5">
+    <div class="card text-white bg-dark align-items-center card-body my-5"> 
         <div class="col-md-3">
             <label for="txtDni" class="form-label">DNI</label>
-            <asp:TextBox ID="txtDni" type="text" CssClass="form-control" runat="server" placeholder="12345678900..."></asp:TextBox>
+            <div class="input-group">
+                <asp:TextBox ID="txtDni" type="text" CssClass="form-control" runat="server" placeholder="12345678900..."></asp:TextBox>
+                <asp:Button ID="btnValidarDni" CssClass="btn btn-primary" OnClick="btnValidarDni_Click" runat="server" Text="Validar" />
+            </div>
         </div>
         <div class="col-md-3">
             <label for="txtNombre" class="form-label">Nombre</label>

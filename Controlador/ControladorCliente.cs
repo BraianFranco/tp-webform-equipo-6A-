@@ -51,5 +51,38 @@ namespace Controlador
 
         }
 
+        public Cliente ObtenerPorDni(string dni)
+        {
+            Cliente cliente = null;
+            AccesoDatos Ad = new AccesoDatos();
+
+            Ad.setearConsulta("select Id, Documento, Nombre , Apellido , Email , Direccion , Ciudad ,CP from Clientes where Documento = @DNI");
+            Ad.setearParametro("@DNI", dni);
+
+            try
+            {
+                Ad.ejecutarLectura();
+
+                if (Ad.Lector.Read())
+                {
+                    cliente = new Cliente
+                    {
+                        Id = (int)Ad.Lector["Id"],
+                        Documento = (string)Ad.Lector["Documento"],
+                        Nombre = (string)Ad.Lector["Nombre"],
+                        Apellido = (string)Ad.Lector["Apellido"],
+                        Ciudad = (string)Ad.Lector["Ciudad"],
+                        Email = (string)Ad.Lector["Email"],
+                        Direccion = (string)Ad.Lector["Direccion"],
+                        CP = (int)Ad.Lector["CP"]
+                    };
+                }
+            }
+            catch (Exception ex) { throw ex; }
+            finally { Ad.cerrarConexion(); }
+
+            return cliente;
+        }
+
     }
 }
