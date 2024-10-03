@@ -63,6 +63,55 @@ namespace Controlador
         }
 
 
+
+
+        static public List<String> getListImagenUrlsByArticuloId(int id)
+        {
+            AccesoDatos db = new AccesoDatos();
+
+            List<string> urlImagenes = new List<string>();
+         
+            try
+            {
+                db.setearConsulta("SELECT ImagenUrl FROM IMAGENES where IdArticulo = @IdArt");
+                db.setearParametro("IdArt", id);
+                db.ejecutarLectura();
+
+
+                while (db.Lector.Read())
+                {
+                    urlImagenes.Add(db.Lector["ImagenUrl"].ToString());
+
+                }
+
+                return urlImagenes;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+
+                db.cerrarConexion();
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         public List<Imagen> Listar()
         {
             List<Imagen> lista = new List<Imagen>();

@@ -6,37 +6,64 @@
 
 
     <div class="row row-cols-3 row-cols-md-3 g-1" style="text-align: center; margin-left: 140px">
-
         <%  
             foreach (Modelo.Articulo art in ListaPremios)
             {
+                List<string> imagenes = Controlador.ControladorImagen.getListImagenUrlsByArticuloId(art.Id);
+                // le da un id diferente cada carousel 
+                string carouselId = "carousel" + art.Id;
         %>
 
+
+
         <div class="card text-bg-dark" style="margin-right: 35px; width: 20rem">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+
+
+
+            <div id="<%= carouselId %>" class="carousel carousel-dark slide">
+
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img style="height: 400px" src="<%: Controlador.ControladorImagen.getImagenByArticuloId(art.Id)%>" class="d-block w-100" alt="Default">
+                    <%  
+                       
+                    // dependiendo de cuantas url estén en la lista crea sus respectivos divs
+                        for (int i = 0; i < imagenes.Count; i++)
+                        {
+                            string activo = (i == 0) ? "active" : "";
+                    %>
+                    <div class="carousel-item <%= activo %>">
+                        <img style="height: 400px" src="<%= imagenes[i] %>" class="d-block w-100" alt="Imagen de <%= art.Nombre %>">
                     </div>
+                    <%  
+                        }
+                    %>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#<%= carouselId %>" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden form-control-color">Anterior</span>
+                    <span class="visually-hidden">Anterior</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#<%= carouselId %>" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">siguiente</span>
+                    <span class="visually-hidden">Siguiente</span>
                 </button>
+
             </div>
+
+
+
             <div class="card-body">
-                <h5 class="card-title"><%:art.Nombre%> </h5>
-                <p class="card-text"><%:art.Descripcion%></p>
+                <h5 class="card-title"><%= art.Nombre %> </h5>
+                <p class="card-text"><%= art.Descripcion %></p>
                 <asp:Button ID="btnSeleccionar" OnClick="btnSeleccionar_Click" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" />
             </div>
         </div>
 
-
-        <%  } %>
+        <%  
+            }
+        %>
     </div>
+
 
 </asp:Content>
