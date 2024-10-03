@@ -10,14 +10,16 @@
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
 
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-      
+        <%: Scripts.Render("~/bundles/modernizr") %>  
     </asp:PlaceHolder>
+
+    <script src="Scripts/Custom.js"></script>
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <link href="~/Content/Default.css" rel="stylesheet" type="text/css" />
+    <link href="Content/SeleccionPremios.css" rel="stylesheet" />
 
 
 </head>
@@ -60,11 +62,24 @@
             </asp:ContentPlaceHolder>
 
 
+            <!-- toast -->
+
+            <div aria-live="polite" aria-atomic="true" class="position-relative">
+                <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container">
+
+                    <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" id="miToast">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                Este es un mensaje de prueba en el toast.
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <footer>
-
-
-
             </footer>
         </div>
     </form>

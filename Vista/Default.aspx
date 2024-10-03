@@ -16,8 +16,9 @@
                                         <label for="txtVoucherCode" class="form-label my-3 ">Ingresá el Código de tu Voucher!</label>
                                         <asp:TextBox runat="server" class="form-control w-50 mx-auto my-3" ID="txtVoucherCode" placeholder="X-X-X-X-X-X-X-X" ></asp:TextBox>
                                     </div>
-                                    <asp:Button runat="server" ID="btnEnviar" type="submit" class="btn btn-primary my-3" Text="Siguiente" OnClick="btnEnviar_Click"></asp:Button>
-                                    <asp:Label runat="server" ID="lblMensaje" CssClass="label-error my-3" Visible="false"></asp:Label>
+                                     <asp:Label runat="server" ID="lblMensaje" CssClass="label-error my-3" Visible="false"></asp:Label>
+                                    <asp:Button runat="server" ID="btnEnviar" type="submit" class="btn btn-primary my-3" Text="Siguiente" OnClick="btnEnviar_Click"  /> 
+                                   
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                         </div>

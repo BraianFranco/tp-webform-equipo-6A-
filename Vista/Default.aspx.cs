@@ -24,7 +24,6 @@ namespace Vista
 
 
 
-
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
             string codVoucher = txtVoucherCode.Text.Trim();
@@ -33,11 +32,12 @@ namespace Vista
             {
                 if (codVoucher.IsNullOrWhiteSpace())
                 {
-                    /// tirar algun mensaje para que ingrese datos
+                
+                    MensajeToast("Ingresá Algún Código ");
 
-                    lblMensaje.Text = "Por favor, ingrese un Código.";
-                    lblMensaje.Visible = true;
-
+                  
+                    lblMensaje.Text = "Ingresá Algún Código" ;
+                    lblMensaje.Visible = true;              
                 }
                 else
                 {
@@ -48,12 +48,13 @@ namespace Vista
                     }
                     else
                     {
-                        /// lanzar cartel de no existe el voucher o fue usado                
+
+                        /// lanzar cartel de no existe el voucher o fue usado 
+                        /// 
+                        MensajeToast("El Código no existe o ya fue utilizado.");
 
                         lblMensaje.Text = "El Código no existe o ya fue utilizado.";
                         lblMensaje.Visible = true;
-
-                   
 
                     }
 
@@ -66,8 +67,13 @@ namespace Vista
 
         }
 
-       
 
+
+
+        protected void MensajeToast(string mensajeToast)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "toast", $"mostrarToast('{mensajeToast}');", true);
+        }
 
     }
 }
