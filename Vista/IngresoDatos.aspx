@@ -7,8 +7,10 @@
         <div class="col-md-3">
             <label for="txtDni" class="form-label">DNI</label>
             <div class="input-group">
-                <asp:TextBox ID="txtDni" type="text" CssClass="form-control" runat="server" placeholder="12345678900..."></asp:TextBox>
+                <asp:TextBox ID="txtDni" type="text" CssClass="form-control" runat="server" placeholder="12345678"></asp:TextBox>
                 <asp:Button ID="btnValidarDni" CssClass="btn btn-primary" OnClick="btnValidarDni_Click" runat="server" Text="Validar" />
+                <asp:Label ID="lblValidacionDni" runat="server" CssClass="ms-2 align-self-center"></asp:Label>
+                <asp:CustomValidator ID="CustomValidatorDni" runat="server" ControlToValidate="txtDni" ErrorMessage="El DNI debe tener máximo 8 caracteres numéricos" OnServerValidate="CustomValidatorDni_ServerValidate" Display="Dynamic" ForeColor="Red"></asp:CustomValidator>
             </div>
         </div>
         <div class="col-md-3">
@@ -50,6 +52,9 @@
         </div>
         <div class="col-3">
             <asp:Button ID="btnParticipar" CssClass="btn btn-primary center" OnClick="btnParticipar_Click" runat="server" Text="Participar!" />
+        </div>
+        <div class="col-12">
+            <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger"></asp:Label>
         </div>
     </div>
 

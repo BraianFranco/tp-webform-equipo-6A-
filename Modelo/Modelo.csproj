@@ -45,6 +45,7 @@
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="Articulo.cs" />
     <Compile Include="Categoria.cs" />
+    <Compile Include="Formulario.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Imagen.cs" />
     <Compile Include="Marca.cs" />
