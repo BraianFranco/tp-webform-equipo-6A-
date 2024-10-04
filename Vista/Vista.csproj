@@ -117,6 +117,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Felicitaciones.aspx" />
     <Content Include="Global.asax" />
     <Content Include="IngresoDatos.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Felicitaciones.aspx.cs">
+      <DependentUpon>Felicitaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Felicitaciones.aspx.designer.cs">
+      <DependentUpon>Felicitaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

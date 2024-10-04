@@ -12,6 +12,8 @@
                 List<string> imagenes = Controlador.ControladorImagen.getListImagenUrlsByArticuloId(art.Id);
                 // le da un id diferente cada carousel 
                 string carouselId = "carousel" + art.Id;
+                Session.Add("codArticulo", art.Id);
+
         %>
 
 
@@ -56,7 +58,7 @@
             <div class="card-body">
                 <h5 class="card-title"><%= art.Nombre %> </h5>
                 <p class="card-text"><%= art.Descripcion %></p>
-                <asp:Button ID="btnSeleccionar" OnClick="btnSeleccionar_Click" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" />
+                <asp:Button ID="btnSeleccionar" OnClick="btnSeleccionar_Click" CssClass="btn btn-primary" runat="server" Text="Seleccionar!" CommandArgument="<%= art.Id %>" />
             </div>
         </div>
 

@@ -45,6 +45,8 @@ namespace Vista
                     if (controladorVoucher.VoucherEsValido(codVoucher))
                     {
                         Response.Redirect($"SelecciónPremio.aspx?cod={codVoucher}");
+
+                        //Session.Add("codVoucher", codVoucher);
                     }
                     else
                     {
@@ -55,6 +57,7 @@ namespace Vista
 
                         lblMensaje.Text = "El Código no existe o ya fue utilizado.";
                         lblMensaje.Visible = true;
+
 
                     }
 
