@@ -7,7 +7,7 @@
         <div class="container text-center my-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <div class="card text-white bg-dark mb-3">
+                    <div class="card no-hover text-white bg-dark mb-3">
                         <div class="card-header py-3">Probá Suerte</div>
                         <div class="card-body my-5">
                             <asp:UpdatePanel runat="server">

@@ -3,14 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1 class="text-center">Ingresá tus datos</h1>
 
-    <div class="card text-white bg-dark align-items-center card-body my-5"> 
+    <div class="card no-hover text-white bg-dark align-items-center card-body my-5"> 
         <div class="col-md-3">
             <label for="txtDni" class="form-label">DNI</label>
             <div class="input-group">
-                <asp:TextBox ID="txtDni" type="text" CssClass="form-control" runat="server" placeholder="12345678"></asp:TextBox>
+                <asp:TextBox ID="txtDni" type="number" CssClass="form-control" runat="server" placeholder="12345678" ></asp:TextBox>
                 <asp:Button ID="btnValidarDni" CssClass="btn btn-primary" OnClick="btnValidarDni_Click" runat="server" Text="Validar" />
                 <asp:Label ID="lblValidacionDni" runat="server" CssClass="ms-2 align-self-center"></asp:Label>
-                <asp:CustomValidator ID="CustomValidatorDni" runat="server" ControlToValidate="txtDni" ErrorMessage="El DNI debe tener máximo 8 caracteres numéricos" OnServerValidate="CustomValidatorDni_ServerValidate" Display="Dynamic" ForeColor="Red"></asp:CustomValidator>
             </div>
         </div>
         <div class="col-md-3">
@@ -38,7 +37,7 @@
         </div>
         <div class="col-md-3">
             <label for="txtCP" class="form-label">CP</label>
-            <asp:TextBox ID="txtCP" type="text" CssClass="form-control" runat="server" placeholder="XXXX"></asp:TextBox>
+            <asp:TextBox ID="txtCP" type="number" CssClass="form-control" runat="server" placeholder="XXXX"></asp:TextBox>
         </div>
         <div class="col-md-3">
             ---------------------------------------------

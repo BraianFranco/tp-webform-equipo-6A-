@@ -57,11 +57,15 @@ namespace Vista
 
         protected void btnValidarDni_Click(object sender, EventArgs e)
         {
-            string dni = txtDni.Text.Trim();
             lblValidacionDni.Text = string.Empty; // Limpiar mensaje previo
 
-            if (Page.IsValid) 
+            if (Page.IsValid)
             {
+                string dni = txtDni.Text.Trim();
+
+
+                lblValidacionDni.Text = string.Empty; // Limpiar mensaje previo
+
                 ControladorCliente controlador = new ControladorCliente();
                 Cliente cliente = controlador.ObtenerPorDni(dni);
 
@@ -76,15 +80,29 @@ namespace Vista
                     lblValidacionDni.Text = "¡Ya estás registrado!";
                     lblValidacionDni.ForeColor = System.Drawing.Color.Green;
                 }
-                else if(dni.IsNullOrWhiteSpace())
+                else if (string.IsNullOrWhiteSpace(dni))
                 {
-                    lblValidacionDni.Text = "¡Debes ingresar un numero de DNI!";
+                    lblValidacionDni.Text = "¡Debes ingresar un número de DNI!";
                     lblValidacionDni.ForeColor = System.Drawing.Color.Red;
                 }
-
+                else if (!long.TryParse(dni, out long dniNumerico))
+                {
+                    lblValidacionDni.Text = "¡El DNI debe ser un número!";
+                    lblValidacionDni.ForeColor = System.Drawing.Color.Red;
+                }
+                else if (dniNumerico < 0) 
+                {
+                    lblValidacionDni.Text = "¡El DNI no puede ser un número negativo!";
+                    lblValidacionDni.ForeColor = System.Drawing.Color.Red;
+                }
+                else if (dni.Length > 8)
+                {
+                    lblValidacionDni.Text = "¡El DNI no puede tener más de 8 caracteres!";
+                    lblValidacionDni.ForeColor = System.Drawing.Color.Red;
+                }
                 else
                 {
-                    lblValidacionDni.Text = "No estas registrado, completa los datos...";
+                    lblValidacionDni.Text = "No estás registrado, completa los datos...";
                     lblValidacionDni.ForeColor = System.Drawing.Color.Red;
                 }
             }
