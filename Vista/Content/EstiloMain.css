@@ -1,0 +1,50 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://ten10.com/wp-content/uploads/2023/09/server-room-scaled.jpg);
+    background-color: whitesmoke;
+    min-height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.Cuadrado {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: rgb(9, 86, 76);
+    transform: rotate(10deg);
+}
+
+#TituloPromo {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 70px;
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: whitesmoke;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: whitesmoke;
+    background-color: #212529;
+    text-align: center;
+    position: fixed;
+}
+
+    footer img {
+        height: 45px;
+        align-self: flex-start;
+    }

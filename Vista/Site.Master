@@ -20,7 +20,7 @@
 
     <link href="~/Content/Default.css" rel="stylesheet" type="text/css" />
     <link href="Content/SeleccionPremios.css" rel="stylesheet" />
-
+    <link href="Content/EstiloMain.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -84,6 +84,15 @@
         </div>
     </form>
 
+      <footer>
+      <div class="container">
+          <a href="https://github.com/BraianFranco/tp-webform-equipo-6A-" target="_blank">
+              <img id="imgGitHub" src="https://img.icons8.com/fluent-systems-filled/200/FFFFFF/github.png" alt="GitHub">
+          </a>
+          Iván Agustín Leani / Gonzalo Nicolás Garnica / Braian Exequiel Franco
+ 
+      </div>
+  </footer> 
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
