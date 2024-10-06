@@ -1,16 +1,17 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Felicitaciones.aspx.cs" Inherits="Vista.Felicitaciones" %>
+﻿<%@ Page Title="Felicitaciones" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Felicitaciones.aspx.cs" Inherits="Vista.Felicitaciones" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="alert alert-success" role="alert" style="width: 100%; max-width: 600px;">
+            <h1 class="alert-heading text-center">¡Felicitaciones!</h1>
+            <p class="text-center">Ya estás participando por el producto que elegiste.</p>
+            <hr>
+            <p class="mb-0 text-center">Cuando desees, puedes volver al inicio.</p>
+            <div class="text-center">
+                <a href="default.aspx" class="btn btn-primary mt-3">Volver al Home</a>
+            </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+
+</asp:Content>
