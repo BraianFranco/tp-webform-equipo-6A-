@@ -22,10 +22,15 @@ namespace Vista
             // Verificar si los parámetros están en la sesión
             if (!IsPostBack)
             {
-                if (Session["codVoucher"] == null || Session["codArticulo"] == null)
+                string codVoucher = (string)Session["codVoucher"];
+                string IdArticulo = (string)Session["IdArticulo"];
+
+                System.Diagnostics.Debug.WriteLine(codVoucher + IdArticulo);
+
+                if (Session["codVoucher"] == null || Session["IdArticulo"] == null)
                 {
                     lblMensaje.Text = "Faltan datos para completar la operación.";
-                    btnParticipar.Enabled = false; // Deshabilitar el botón si faltan datos
+                    btnParticipar.Enabled = false;
                 }
             }
 
