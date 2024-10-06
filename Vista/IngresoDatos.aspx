@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="IngresoDatos.aspx.cs" Inherits="Vista.IngresoDatos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1 class="text-center">Ingresá tus datos</h1>
+    <h1 style="color:whitesmoke" class="text-center">Ingresá tus datos</h1>
 
     <div class="card no-hover text-white bg-dark align-items-center card-body my-5"> 
         <div class="col-md-3">

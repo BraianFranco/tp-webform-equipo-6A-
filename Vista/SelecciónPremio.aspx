@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1 class="text-center">Elegí tu premio</h1>
+    <h1 style="color:whitesmoke" class="text-center">Elegí tu premio</h1>
 
     <div class="row row-cols-3 row-cols-md-3 g-1" style="text-align: center; margin-left: 140px">
         <asp:Repeater runat="server" ID="repetidor" OnItemDataBound="ItemBound">
