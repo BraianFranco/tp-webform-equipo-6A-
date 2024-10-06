@@ -19,14 +19,10 @@ namespace Vista
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            // Verificar si los parámetros están en la sesión
+            
             if (!IsPostBack)
             {
-                string codVoucher = (string)Session["codVoucher"];
-                string IdArticulo = (string)Session["IdArticulo"];
-
-                System.Diagnostics.Debug.WriteLine(codVoucher + IdArticulo);
-
+               
                 if (Session["codVoucher"] == null || Session["IdArticulo"] == null)
                 {
                     lblMensaje.Text = "Faltan datos para completar la operación.";
@@ -36,10 +32,10 @@ namespace Vista
 
         }
 
+
+
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 Formulario formulario = new Formulario
@@ -70,24 +66,20 @@ namespace Vista
                             CP = int.Parse(formulario.CP)
                         };
 
-                        controladorCliente.InsertarCliente(nuevoCliente); // insert del nuevo cliente en la BD
+                        controladorCliente.InsertarCliente(nuevoCliente);
 
-                        string codigoVoucher = Session["codVoucher"]?.ToString();
-                        int idArticulo = (int)Session["codArticulo"];
+                       
+                        string codigoVoucher = Session["codVoucher"]?.ToString() ?? "";
+                        int idArticulo = Session["IdArticulo"] != null ? Convert.ToInt32(Session["IdArticulo"]) : 0;
 
                         DateTime fechaCanje = DateTime.Now;
-
                         int idCliente = controladorCliente.ObtenerMaxIdCliente();
 
-
                         controladorCliente.ActualizarVoucher(codigoVoucher, idCliente, fechaCanje, idArticulo);
-
-
                         Response.Redirect("Felicitaciones.aspx");
                     }
-                    else // else solo hago el update en la tabla de vouchers
+                    else
                     {
-
                         Cliente nuevoCliente = new Cliente
                         {
                             Documento = formulario.Dni,
@@ -99,17 +91,13 @@ namespace Vista
                             CP = int.Parse(formulario.CP)
                         };
 
-
-
-                        string codigoVoucher = Session["codVoucher"] != null ? Session["codVoucher"].ToString() : "" ;
-                        int idArticulo = (int)Session["codArticulo"];
-
+                      
+                        string codigoVoucher = Session["codVoucher"]?.ToString() ?? "";
+                        int idArticulo = Session["IdArticulo"] != null ? Convert.ToInt32(Session["IdArticulo"]) : 0;
                         int idCliente = controladorCliente.ObtenerIdCliente(nuevoCliente);
-
                         DateTime fechaCanje = DateTime.Now;
 
-                        controladorCliente.ActualizarVoucher(codigoVoucher, idCliente , fechaCanje, idArticulo);
-
+                        controladorCliente.ActualizarVoucher(codigoVoucher, idCliente, fechaCanje, idArticulo);
                         Response.Redirect("Felicitaciones.aspx");
                     }
                 }
@@ -120,21 +108,23 @@ namespace Vista
             }
             catch (Exception ex)
             {
-                throw ex;
+               
+                throw;
             }
-
         }
+
+
 
         protected void btnValidarDni_Click(object sender, EventArgs e)
         {
-            lblValidacionDni.Text = string.Empty; // Limpiar mensaje previo
+            lblValidacionDni.Text = string.Empty;
 
             if (Page.IsValid)
             {
                 string dni = txtDni.Text.Trim();
 
 
-                lblValidacionDni.Text = string.Empty; // Limpiar mensaje previo
+                lblValidacionDni.Text = string.Empty; 
 
                 ControladorCliente controlador = new ControladorCliente();
                 Cliente cliente = controlador.ObtenerPorDni(dni);
