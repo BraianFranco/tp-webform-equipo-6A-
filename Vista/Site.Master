@@ -57,7 +57,7 @@
 
 
 
-        <div class="container body-content mb-3">
+        <div class="container body-content" style="margin-bottom:5rem;">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
 
@@ -81,7 +81,7 @@
         </div>
     </form>
 
-   <footer style="position:fixed">
+   <footer >
           <a href="https://github.com/BraianFranco/tp-webform-equipo-6A-" target="_blank">
               <img id="imgGitHub" src="https://img.icons8.com/fluent-systems-filled/200/FFFFFF/github.png" alt="GitHub">
           </a>
